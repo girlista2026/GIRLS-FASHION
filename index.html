@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIRLISTA.ID | Premium Knitt Pants Collection</title>
+    <!-- Tailwind CSS untuk styling cepat dan modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandWhite: '#FFFFFF',
+                        brandCream: '#F5EBE6',
+                        brandBrown: '#4A3728',
+                        brandBrownDark: '#2C1E15',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #FFFFFF; color: #4A3728; }
+        .timbul { box-shadow: 0 10px 25px -5px rgba(74, 55, 40, 0.1), 0 8px 10px -6px rgba(74, 55, 40, 0.1); }
+    </style>
+</head>
+<body class="bg-brandWhite text-brandBrown min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVIGATION -->
+    <nav class="bg-brandCream/90 backdrop-blur-md sticky top-0 z-50 px-4 py-3 border-b border-brandBrown/10 flex justify-between items-center">
+        <div class="flex gap-4">
+            <button onclick="switchPage('home')" class="font-bold tracking-wider hover:opacity-70">BERANDA</button>
+            <button onclick="switchPage('shop')" class="font-bold tracking-wider hover:opacity-70">BELANJA</button>
+            <button onclick="switchPage('about')" class="font-bold tracking-wider hover:opacity-70">TENTANG KAMI</button>
+        </div>
+        <div class="text-xl font-black tracking-widest text-brandBrown cursor-pointer" onclick="switchPage('home')">
+            GIRLISTA.ID
+        </div>
+        <div class="relative cursor-pointer" onclick="switchPage('cart')">
+            <i class="fa-solid fa-shopping-cart text-xl"></i>
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-brandBrown text-brandCream text-xs w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow">
+
+        <!-- ================= PAGE: HOME ================= -->
+        <section id="page-home" class="page-section">
+            <!-- Hero Section -->
+            <div class="relative bg-brandCream py-12 px-6 flex flex-col items-center text-center overflow-hidden">
+                <img src="hero-knit.jpeg" alt="Hero Knit Pants" class="w-full max-w-md h-64 object-cover rounded-xl opacity-80 mb-6 timbul">
+                <h1 class="text-3xl font-black tracking-tight mb-3">CELANA WANITA KNITT COLLECTION</h1>
+                <p class="text-sm max-w-md font-light text-brandBrown/80 mb-6 leading-relaxed">
+                    Celana ini hadir dengan desain yang simple, modern, dan mudah dipadukan dengan berbagai outfit, cocok untuk kerja, kuliah, jalan santai.
+                </p>
+                <button onclick="switchPage('shop')" class="bg-brandBrown text-brandCream px-8 py-3 rounded-full font-bold tracking-widest uppercase text-sm hover:bg-brandBrownDark transition">BUY NOW</button>
+            </div>
+
+            <!-- Girlista Collection Section -->
+            <div class="py-12 px-4 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-black tracking-wider text-center mb-8">GIRLISTA COLLECTION</h2>
+                
+                <!-- Grid 1: Detail Produk -->
+                <div class="grid grid-cols-2 gap-4 mb-12">
+                    <div class="bg-brandCream p-3 rounded-xl timbul text-center">
+                        <img src="KNITT JENNIE PANTS.jpeg" alt="Jennie" class="w-full h-48 object-cover rounded-lg mb-3">
+                        <h3 class="font-bold text-xs tracking-wider mb-2">KNITT JENNIE PANTS</h3>
+                        <button onclick="openDetail('jennie')" class="w-full bg-brandWhite text-brandBrown text-xs py-2 rounded border border-brandBrown/20 font-bold">Detail Produk</button>
+                    </div>
+                    <div class="bg-brandCream p-3 rounded-xl timbul text-center">
+                        <img src="KNITT ORO PANTS.jpeg" alt="Oro" class="w-full h-48 object-cover rounded-lg mb-3">
+                        <h3 class="font-bold text-xs tracking-wider mb-2">KNITT ORO PANTS</h3>
+                        <button onclick="openDetail('oro')" class="w-full bg-brandWhite text-brandBrown text-xs py-2 rounded border border-brandBrown/20 font-bold">Detail Produk</button>
+                    </div>
+                </div>
+
+                <!-- Grid 2: Direct Order -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-brandCream p-3 rounded-xl timbul text-center">
+                        <img src="KNITT JENNIE PANTS2.jpeg" alt="Jennie 2" class="w-full h-48 object-cover rounded-lg mb-3">
+                        <h3 class="font-bold text-xs tracking-wider mb-2">KNITT JENNIE PANTS</h3>
+                        <button onclick="switchPage('shop')" class="w-full bg-brandBrown text-brandCream text-xs py-2 rounded font-bold">Order</button>
+                    </div>
+                    <div class="bg-brandCream p-3 rounded-xl timbul text-center">
+                        <img src="KNITT ORO PANTS 2.jpeg" alt="Oro 2" class="w-full h-48 object-cover rounded-lg mb-3">
+                        <h3 class="font-bold text-xs tracking-wider mb-2">KNITT ORO PANTS</h3>
+                        <button onclick="switchPage('shop')" class="w-full bg-brandBrown text-brandCream text-xs py-2 rounded font-bold">Order</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Keluh Kesah (Amplop) -->
+            <div class="bg-brandCream py-10 px-6 border-t border-brandBrown/10">
+                <div class="max-w-md mx-auto bg-brandWhite p-6 rounded-2xl timbul border border-brandBrown/5">
+                    <h3 class="text-center font-bold tracking-widest mb-4"><i class="fa-regular fa-envelope mr-2"></i>KIRIM PESAN KEPADA KAMI</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="text-xs font-bold uppercase block mb-1">Tertuju</label>
+                            <input type="text" placeholder="Customer Service / Admin" class="w-full p-2 border border-brandBrown/20 rounded text-sm focus:outline-none focus:border-brandBrown">
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold uppercase block mb-1">Pesan</label>
+                            <textarea rows="3" placeholder="Tulis keluh kesah atau saran Anda..." class="w-full p-2 border border-brandBrown/20 rounded text-sm focus:outline-none focus:border-brandBrown"></textarea>
+                        </div>
+                        <button onclick="alert('Terima kasih atas pesan Anda!')" class="w-full bg-brandBrown text-brandCream py-2 rounded font-bold text-sm">KIRIM</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Banner -->
+            <div class="relative bg-brandCream/40 py-16 px-6 text-center border-t border-brandBrown/10">
+                <h2 class="text-3xl font-black tracking-widest mb-2">THANK YOU SO MUCH</h2>
+                <p class="text-xs tracking-wider font-light text-brandBrown/70">kami berharap anda tertarik dengan produk kami</p>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE: DETAIL JENNIE ================= -->
+        <section id="page-detail-jennie" class="page-section hidden py-8 px-4 max-w-4xl mx-auto space-y-6">
+            <!-- Box 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-brandCream p-4 rounded-xl timbul items-center">
+                <img src="KNITT JENNIE PANTS 3.jpeg" alt="Jennie Detail" class="w-full h-64 object-cover rounded-lg">
+                <div>
+                    <h2 class="text-xl font-black mb-2">KNITT JENNIE PANTS</h2>
+                    <p class="text-sm italic font-light leading-relaxed text-brandBrown/90">Bahan Premium, nyaman dipakai, lembut, jatuh, dan tidak menerawang. Pinggan full karet, tersedia 2 saku dan 2 kancing depan.</p>
+                </div>
+            </div>
+            <!-- Box 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-brandCream p-4 rounded-xl timbul items-center">
+                <img src="DETAIL WARNA JENNIE.jpeg" alt="Jennie Warna" class="w-full h-64 object-cover rounded-lg">
+                <div>
+                    <h2 class="text-xl font-black mb-2">DETAIL WARNA</h2>
+                    <p class="text-sm italic font-light text-brandBrown/90">Warna pada gambar dan warna pada produk akan sedikit berbeda.</p>
+                </div>
+            </div>
+            <!-- Box 3 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-brandCream p-4 rounded-xl timbul items-center">
+                <img src="DETAIL SIZE JENNIE.jpeg" alt="Jennie Size" class="w-full h-64 object-cover rounded-lg">
+                <div>
+                    <h2 class="text-xl font-black mb-2">DETAIL SIZE</h2>
+                    <p class="text-sm italic font-light text-brandBrown/90">Toleransi panjang celana +- 1 sampai 2 cm.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE: DETAIL ORO ================= -->
+        <section id="page-detail-oro" class="page-section hidden py-8 px-4 max-w-4xl mx-auto space-y-6">
+            <!-- Box 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-brandCream p-4 rounded-xl timbul items-center">
+                <img src="KNITT ORO PANTS.jpeg" alt="Oro Detail" class="w-full h-64 object-cover rounded-lg">
+                <div>
+                    <h2 class="text-xl font-black mb-2">KNITT ORO PANTS</h2>
+                    <p class="text-sm italic font-light leading-relaxed text-brandBrown/90">Celana kerja Oro Pants wanita adalah produk yang tersedia untuk anda yang membutuhkan celana kerja yang nyaman dan fleksibel. Celana ini terbuat dari bahan knitt premium yang memberikan kenyamanan saat digunakan dan tahan lama. Tersedia 2 saku dan 2 pengait.</p>
+                </div>
+            </div>
+            <!-- Box 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-brandCream p-4 rounded-xl timbul items-center">
+                <img src="DETAIL WARNA ORO.jpeg" alt="Oro Warna" class="w-full h-64 object-cover rounded-lg">
+                <div>
+                    <h2 class="text-xl font-black mb-2">DETAIL WARNA</h2>
+                    <p class="text-sm italic font-light text-brandBrown/90">Warna pada gambar dan warna pada produk akan sedikit berbeda.</p>
+                </div>
+            </div>
+            <!-- Box 3 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-brandCream p-4 rounded-xl timbul items-center">
+                <img src="DETAIL SIZE ORO.jpeg" alt="Oro Size" class="w-full h-64 object-cover rounded-lg">
+                <div>
+                    <h2 class="text-xl font-black mb-2">DETAIL SIZE</h2>
+                    <p class="text-sm italic font-light text-brandBrown/90">Toleransi panjang celana +- 1 sampai 2 cm.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE: BELANJA (SHOP) ================= -->
+        <section id="page-shop" class="page-section hidden py-6 px-4 max-w-4xl mx-auto">
+            <!-- Search & Filter Mockup -->
+            <div class="mb-6 flex flex-col gap-2">
+                <input type="text" placeholder="Cari celana rajut..." class="w-full p-2 border border-brandBrown/20 rounded-lg text-sm focus:outline-none focus:border-brandBrown">
+                <div class="flex gap-2 overflow-x-auto text-xs font-bold whitespace-nowrap py-1">
+                    <span class="bg-brandCream px-3 py-1 rounded-full border border-brandBrown/10">Kategori: All</span>
+                    <span class="bg-brandCream px-3 py-1 rounded-full border border-brandBrown/10">Harga: Rp45.000</span>
+                    <span class="bg-brandCream px-3 py-1 rounded-full border border-brandBrown/10">Ukuran</span>
+                    <span class="bg-brandCream px-3 py-1 rounded-full border border-brandBrown/10">Warna</span>
+                </div>
+            </div>
+
+            <!-- Grid Belanja -->
+            <div class="space-y-6">
+                <!-- Produk Jennie -->
+                <div class="bg-brandCream p-4 rounded-xl timbul grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <!-- Slider Ringkas Simpel -->
+                        <img src="KNITT JENNIE PANTS.jpeg" id="img-jennie" class="w-full h-56 object-cover rounded-lg mb-2 cursor-pointer" onclick="toggleProductSlider('jennie')">
+                        <p class="text-center text-[10px] text-brandBrown/50"><i class="fa-solid fa-arrows-left-right"></i> Klik gambar untuk ganti foto</p>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-black tracking-wide">KNITT JENNIE PANTS</h3>
+                            <p class="font-bold text-brandBrown/90 text-sm mb-1">Rp. 45.000</p>
+                            <p class="text-amber-500 text-xs mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-brandBrown/60 ml-1">(terjual 5)</span></p>
+                        </div>
+                        <button onclick="openConfig('jennie')" class="w-full bg-brandBrown text-brandCream py-2 rounded font-bold text-sm">Beli & Konfigurasi</button>
+                    </div>
+                </div>
+
+                <!-- Produk Oro -->
+                <div class="bg-brandCream p-4 rounded-xl timbul grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <img src="KNITT ORO PANTS.jpeg" id="img-oro" class="w-full h-56 object-cover rounded-lg mb-2 cursor-pointer" onclick="toggleProductSlider('oro')">
+                        <p class="text-center text-[10px] text-brandBrown/50"><i class="fa-solid fa-arrows-left-right"></i> Klik gambar untuk ganti foto</p>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-black tracking-wide">KNITT ORO PANTS</h3>
+                            <p class="font-bold text-brandBrown/90 text-sm mb-1">Rp. 45.000</p>
+                            <p class="text-amber-500 text-xs mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="text-gray-300 fa-solid fa-star"></i> <span class="text-brandBrown/60 ml-1">(terjual 3)</span></p>
+                        </div>
+                        <button onclick="openConfig('oro')" class="w-full bg-brandBrown text-brandCream py-2 rounded font-bold text-sm">Beli & Konfigurasi</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= CONFIGURE PAGE (OVERLAY SEMENTARA) ================= -->
+        <section id="page-config" class="page-section hidden py-6 px-4 max-w-md mx-auto">
+            <div class="bg-brandCream p-6 rounded-2xl timbul space-y-4">
+                <h2 id="config-title" class="text-xl font-black uppercase">Konfigurasi Produk</h2>
+                <p id="config-price" class="font-bold text-sm">Rp. 45.000</p>
+                
+                <div>
+                    <label class="text-xs font-bold block mb-1">Pilih Warna</label>
+                    <select id="config-color" class="w-full p-2 text-sm bg-brandWhite border border-brandBrown/20 rounded focus:outline-none"></select>
+                </div>
+                <div>
+                    <label class="text-xs font-bold block mb-1">Pilih Size</label>
+                    <select id="config-size" class="w-full p-2 text-sm bg-brandWhite border border-brandBrown/20 rounded focus:outline-none">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs font-bold block mb-1">Catatan Tambahan</label>
+                    <input type="text" id="config-note" placeholder="Contoh: Warna cadangan, dll." class="w-full p-2 text-sm bg-brandWhite border border-brandBrown/20 rounded focus:outline-none">
+                </div>
+                <div>
+                    <label class="text-xs font-bold block mb-1">Jumlah</label>
+                    <input type="number" id="config-qty" value="1" min="1" class="w-20 p-2 text-sm bg-brandWhite border border-brandBrown/20 rounded focus:outline-none">
+                </div>
+
+                <div class="space-y-2 pt-2">
+                    <button onclick="addToCart()" class="w-full bg-brandWhite text-brandBrown border border-brandBrown py-2 rounded font-bold text-sm flex justify-center items-center gap-2">
+                        <i class="fa-solid fa-cart-plus"></i> Tambah ke keranjang
+                    </button>
+                    <button onclick="goToCheckoutDirectly()" class="w-full bg-brandBrown text-brandCream py-2 rounded font-bold text-sm">Pergi ke Checkout</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE: CART & CHECKOUT ================= -->
+        <section id="page-cart" class="page-section hidden py-6 px-4 max-w-md mx-auto">
+            <h2 class="text-xl font-black mb-4"><i class="fa-solid fa-shopping-bag mr-2"></i>Ringkasan Item</h2>
+            
+            <div id="cart-items" class="space-y-3 mb-6">
+                <!-- Dinamis lewat JS -->
+                <p class="text-center text-sm font-light text-brandBrown/60 py-4">Keranjang belanja kosong.</p>
+            </div>
+
+            <!-- Form Alamat (Langkah 1) -->
+            <div id="checkout-step-address" class="hidden bg-brandCream p-4 rounded-xl timbul space-y-3 mb-6">
+                <h3 class="font-bold text-sm uppercase border-b border-brandBrown/10 pb-1">Form Alamat Pengiriman</h3>
+                <div>
+                    <label class="text-[11px] font-bold block mb-0.5">Nama Lengkap</label>
+                    <input type="text" id="order-name" class="w-full p-2 text-sm bg-brandWhite border border-brandBrown/20 rounded">
+                </div>
+                <div>
+                    <label class="text-[11px] font-bold block mb-0.5">Nomor Telepon (WhatsApp)</label>
+                    <input type="tel" id="order-phone" class="w-full p-2 text-sm bg-brandWhite border border-brandBrown/20 rounded">
+                </div>
+                <div>
+                    <label class="text-[11px] font-bold block mb-0.5">Alamat Lengkap</label>
+                    <textarea id="order-address" rows="2" class="w-full p-2 text-sm bg-brandWhite border border-brandBrown/20 rounded"></textarea>
+                </div>
+                <button onclick="showPaymentStep()" class="w-full bg-brandBrown text-brandCream py-2 rounded font-bold text-xs uppercase tracking-wider">Selanjutnya (Metode Pembayaran)</button>
+            </div>
+
+            <!-- Form Pembayaran (Langkah 2) -->
+            <div id="checkout-step-payment" class="hidden bg-brandCream p-4 rounded-xl timbul space-y-3 mb-6">
+                <h3 class="font-bold text-sm uppercase border-b border-brandBrown/10 pb-1">Metode Pembayaran</h3>
+                <div class="space-y-2">
+                    <label class="flex items-center gap-2 bg-brandWhite p-2 rounded border border-brandBrown/10 cursor-pointer">
+                        <input type="radio" name="payment-method" value="Seabank" checked>
+                        <span class="text-xs font-bold">E-Wallet Seabank (901276623060)</span>
+                    </label>
+                    <label class="flex items-center gap-2 bg-brandWhite p-2 rounded border border-brandBrown/10 cursor-pointer">
+                        <input type="radio" name="payment-method" value="COD">
+                        <span class="text-xs font-bold">COD (Cash on Delivery)</span>
+                    </label>
+                </div>
+                <button onclick="submitOrder()" class="w-full bg-emerald-700 text-brandWhite py-3 rounded font-bold text-sm uppercase tracking-wider hover:bg-emerald-800">Buat Pesan</button>
+            </div>
+
+            <button id="btn-main-checkout" onclick="startCheckout()" class="w-full bg-brandBrown text-brandCream py-3 rounded font-bold text-sm uppercase tracking-widest hidden">Checkout Sekarang</button>
+        </section>
+
+
+        <!-- ================= PAGE: TENTANG KAMI ================= -->
+        <section id="page-about" class="page-section hidden py-8 px-4 max-w-2xl mx-auto space-y-6">
+            <h1 class="text-3xl font-black tracking-widest text-center my-4">GIRLISTA.ID</h1>
+            
+            <div class="bg-brandCream p-5 rounded-2xl timbul border border-brandBrown/5 text-sm leading-relaxed">
+                Selamat datang di Grilista.id! Kami adalah toko lokal terpercaya yang memproduksi fashion wanita berupa KNITT PANTS siap pakai dengan kualitas premium. Kami berfokus pada tren fashion terkini Clean, Minimalis, Elegan namun tetap Premium dan Mewah, kami menjamin kualitas bahan kain yang digunakan premium serta melewati tahap Quality Control ketat sebelum dikirim ke pelanggan.
+            </div>
+
+            <div class="bg-brandCream p-5 rounded-2xl timbul border border-brandBrown/5 text-sm font-bold text-center">
+                Belanja aman, nyaman, dan terpercaya hanya di ModisFashion. Kepuasan Anda adalah prioritas utama kami!
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER / SOCIAL MEDIA LOGO -->
+    <footer class="bg-brandCream border-t border-brandBrown/10 py-6 flex flex-col items-center gap-3">
+        <div class="flex gap-6 text-xl">
+            <a href="https://www.instagram.com/girlista.id?igsh=eW1kNGgzdGg0OXlr" target="_blank" class="hover:opacity-70 text-brandBrown"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@girlista.id?_r=1&_t=ZS-97Hjy9KQ112" target="_blank" class="hover:opacity-70 text-brandBrown"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/62895634098826" target="_blank" class="hover:opacity-70 text-brandBrown"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p class="text-[10px] tracking-widest text-brandBrown/50">&copy; 2026 GIRLISTA.ID. All Rights Reserved.</p>
+    </footer>
+
+    <!-- LOGIKAL JAVASCRIPT E-COMMERCE -->
+    <script>
+        // State Management
+        let cart = [];
+        let currentProductConfig = '';
+        
+        const imagesJennie = ["KNITT JENNIE PANTS.jpeg", "KNITT JENNIE PANTS2.jpeg", "KNITT JENNIE PANTS 3.jpeg"];
+        const imagesOro = ["KNITT ORO PANTS.jpeg", "KNITT ORO PANTS 2.jpeg", "WhatsApp Image 2026-06-17 at 14.19.08 (2).jpeg"];
+        let idxJennie = 0; let idxOro = 0;
+
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(`page-${pageId}`).classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+
+        function openDetail(type) {
+            switchPage(`detail-${type}`);
+        }
+
+        function toggleProductSlider(type) {
+            if(type === 'jennie') {
+                idxJennie = (idxJennie + 1) % imagesJennie.length;
+                document.getElementById('img-jennie').src = imagesJennie[idxJennie];
+            } else {
+                idxOro = (idxOro + 1) % imagesOro.length;
+                document.getElementById('img-oro').src = imagesOro[idxOro];
+            }
+        }
+
+        function openConfig(type) {
+            currentProductConfig = type;
+            const colorSelect = document.getElementById('config-color');
+            colorSelect.innerHTML = '';
+            
+            if(type === 'jennie') {
+                document.getElementById('config-title').innerText = "KNITT JENNIE PANTS";
+                const colors = ["Hitam", "Ivory", "Choco", "Milo", "Cream", "Broken White", "Sage", "Mint", "Denim", "Dark Grey"];
+                colors.forEach(c => colorSelect.innerHTML += `<option value="${c}">${c}</option>`);
+            } else {
+                document.getElementById('config-title').innerText = "KNITT ORO PANTS";
+                const colors = ["Hitam", "Ivory", "Broken White", "Dark Grey"];
+                colors.forEach(c => colorSelect.innerHTML += `<option value="${c}">${c}</option>`);
+            }
+            switchPage('config');
+        }
+
+        function addToCart() {
+            const productTitle = document.getElementById('config-title').innerText;
+            const color = document.getElementById('config-color').value;
+            const size = document.getElementById('config-size').value;
+            const note = document.getElementById('config-note').value;
+            const qty = parseInt(document.getElementById('config-qty').value);
+
+            cart.push({ name: productTitle, price: 45000, color, size, note, qty });
+            updateCartUI();
+            alert('Berhasil dimasukkan ke keranjang!');
+            switchPage('shop');
+        }
+
+        function goToCheckoutDirectly() {
+            addToCart();
+            switchPage('cart');
+            startCheckout();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('cart-items');
+            
+            if(cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-sm font-light text-brandBrown/60 py-4">Keranjang belanja kosong.</p>`;
+                document.getElementById('btn-main-checkout').classList.add('hidden');
+                return;
+            }
+
+            container.innerHTML = '';
+            let subtotal = 0;
+            cart.forEach((item, index) => {
+                const totalItemPrice = item.price * item.qty;
+                subtotal += totalItemPrice;
+                container.innerHTML += `
+                    <div class="bg-brandCream p-3 rounded-lg flex justify-between items-center text-xs">
+                        <div>
+                            <p class="font-bold">${item.name} (${item.size})</p>
+                            <p class="text-brandBrown/70">Warna: ${item.color} | Qty: ${item.qty}</p>
+                            ${item.note ? `<p class="italic text-[10px] text-brandBrown/50">Note: ${item.note}</p>` : ''}
+                        </div>
+                        <p class="font-bold">Rp ${(totalItemPrice).toLocaleString('id-ID')}</p>
+                    </div>
+                `;
+            });
+
+            container.innerHTML += `
+                <div class="border-t border-brandBrown/20 pt-2 flex justify-between font-black text-sm">
+                    <span>SUBTOTAL:</span>
+                    <span>Rp ${subtotal.toLocaleString('id-ID')}</span>
+                </div>
+            `;
+            document.getElementById('btn-main-checkout').classList.remove('hidden');
+        }
+
+        function startCheckout() {
+            document.getElementById('checkout-step-address').classList.remove('hidden');
+            document.getElementById('btn-main-checkout').classList.add('hidden');
+        }
+
+        function showPaymentStep() {
+            if(!document.getElementById('order-name').value || !document.getElementById('order-phone').value || !document.getElementById('order-address').value) {
+                alert('Mohon lengkapi data alamat pengiriman Anda!');
+                return;
+            }
+            document.getElementById('checkout-step-payment').classList.remove('hidden');
+        }
+
+        function submitOrder() {
+            const name = document.getElementById('order-name').value;
+            const phone = document.getElementById('order-phone').value;
+            const address = document.getElementById('order-address').value;
+            const payment = document.querySelector('radio[name="payment-method"]:checked')?.value || "Seabank";
+            
+            let totalAmount = 0;
+            cart.forEach(item => totalAmount += (item.price * item.qty));
+
+            const orderData = {
+                id: "GR" + Date.now().toString().slice(-6),
+                customer: { name, phone, address },
+                items: cart,
+                paymentMethod: payment,
+                total: totalAmount,
+                date: new Date().toLocaleDateString('id-ID')
+            };
+
+            // Simpan ke localStorage agar Panel Penjual bisa menarik data secara real-time
+            let currentOrders = JSON.parse(localStorage.getItem('girlista_orders')) || [];
+            currentOrders.push(orderData);
+            localStorage.setItem('girlista_orders', JSON.stringify(currentOrders));
+
+            alert('Pesanan Sukses Dibuat! Data telah dikirim ke panel penjual.');
+            
+            // Reset state
+            cart = [];
+            updateCartUI();
+            document.getElementById('checkout-step-address').classList.add('hidden');
+            document.getElementById('checkout-step-payment').classList.add('hidden');
+            switchPage('home');
+        }
+    </script>
+</body>
+</html>
